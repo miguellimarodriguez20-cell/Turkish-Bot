@@ -48,7 +48,6 @@ client.on('messageCreate', message => {
             .setColor('#DC2626') // Vermelho
             .setTitle('Hub de Candidaturas ATC24')
             .setImage('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Turkish_Airlines_Logo.svg/1200px-Turkish_Airlines_Logo.svg.png')
-            .setDescription('Bem-vindo ao hub de aplicações ATC24!')
             .addFields(
                 {
                     name: '✈️ Candidatar-se para Piloto:',
