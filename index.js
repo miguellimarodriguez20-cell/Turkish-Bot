@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, ChannelType } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -33,12 +33,48 @@ client.on('messageCreate', message => {
 \`!ping\` - Verifica a latência do bot
 \`!help\` - Mostra esta mensagem
 \`!avatar\` - Mostra seu avatar
+\`!aplicacao\` - Mostra o embed de aplicação
         `);
     }
 
     // Comando !avatar
     if (message.content === '!avatar') {
         message.reply(`${message.author.displayAvatarURL({ dynamic: true, size: 512 })}`);
+    }
+
+    // Comando !aplicacao
+    if (message.content === '!aplicacao') {
+        const embed = new EmbedBuilder()
+            .setColor('#EF4444') // Vermelho
+            .setTitle('ATC24 Application Hub')
+            .setDescription('Bem-vindo ao hub de aplicações ATC24!')
+            .setThumbnail('https://cdn.discordapp.com/emojis/123456789012345678.png') // Adicione o ícone do ATC24
+            .addFields(
+                {
+                    name: '✈️ Apply for Pilot:',
+                    value: '**Apply now** to become an ATC24 Pilot and take your place among the elite.\nExperience the thrill of flying across the skies while proudly representing ATC24.',
+                    inline: false
+                },
+                {
+                    name: '📋 Apply for Staff Manager:',
+                    value: '**CLOSED** - Apply now to become an ATC24 Staff Manager and take charge of leading our pilot team. As a Staff Manager, you\'ll oversee flight operations and review flight plans for accuracy and professionalism.',
+                    inline: false
+                },
+                {
+                    name: '⚠️ Informações Importantes:',
+                    value: '• Complete a aplicação cuidadosamente com informações precisas\n• Submissões incompletas ou falsas podem afetar sua elegibilidade\n• Certifique-se que suas DMs estão abertas\n• Sua aplicação será revisada por nosso time',
+                    inline: false
+                },
+                {
+                    name: '✨ Obrigado:',
+                    value: 'Obrigado pelo seu interesse, e esperamos ter você a bordo!',
+                    inline: false
+                }
+            )
+            .setFooter({ text: 'ATC24 Application Hub' })
+            .setTimestamp();
+
+        message.reply({ embeds: [embed] });
     }
 });
 
