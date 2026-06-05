@@ -56,11 +56,6 @@ client.on('messageCreate', message => {
                     inline: false
                 },
                 {
-                    name: '📋 Candidatar-se para Gestor de Staff:',
-                    value: 'Candidata-te agora para te tornares um Gestor de Staff ATC24 e assumi o comando da liderança do nosso grupo de pilotos. Como Gestor de Staff, supervisionarás as operações de voo e revegarás planos de voo para precisão e profissionalismo.',
-                    inline: false
-                },
-                {
                     name: '\u200b',
                     value: 'Por favor, dedica tempo para completar esta candidatura com cuidado e forneça informações precisas. Candidaturas incompletas ou falsas podem afetar a tua elegibilidade.',
                     inline: false
@@ -90,12 +85,7 @@ client.on('messageCreate', message => {
                 new ButtonBuilder()
                     .setCustomId('apply_pilot')
                     .setLabel('Candidatar')
-                    .setStyle(ButtonStyle.Danger),
-                new ButtonBuilder()
-                    .setCustomId('apply_staff')
-                    .setLabel('Fechado')
-                    .setStyle(ButtonStyle.Secondary)
-                    .setDisabled(true)
+                    .setStyle(ButtonStyle.Danger)
             );
 
         message.reply({ embeds: [embed], components: [row] });
