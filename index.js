@@ -46,54 +46,54 @@ client.on('messageCreate', message => {
     if (message.content === '!aplicacao') {
         const embed = new EmbedBuilder()
             .setColor('#DC2626') // Vermelho
-            .setTitle('ATC24 Application Hub')
-            .setThumbnail('https://cdn.discordapp.com/attachments/1234567890/1234567890/atc24_logo.png') // Adicione a URL do logo
+            .setImage('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Turkish_Airlines_Logo.svg/1200px-Turkish_Airlines_Logo.svg.png')
+            .setTitle('Hub de Candidaturas ATC24')
             .setDescription('Bem-vindo ao hub de aplicações ATC24!')
             .addFields(
                 {
-                    name: 'Apply for Pilot:',
-                    value: 'Apply now to become an ATC24 Pilot and take your place among the elite.\nExperience the thrill of flying across the skies while proudly representing ATC24.',
+                    name: '✈️ Candidatar-se para Piloto:',
+                    value: 'Candidata-te agora para te tornares um Piloto ATC24 e toma o teu lugar entre a elite.\nExperimenta a emoção de voar nos céus enquanto representas com orgulho ATC24.',
                     inline: false
                 },
                 {
-                    name: 'Apply for Staff Manager:',
-                    value: 'Apply now to become an ATC24 Staff Manager and take charge of leading our pilot team. As a Staff Manager, you\'ll oversee flight operations and review flight plans for accuracy and professionalism.',
-                    inline: false
-                },
-                {
-                    name: '\u200b',
-                    value: 'Please take your time to complete this application carefully and provide accurate information. Incomplete or false submissions may affect your eligibility.',
+                    name: '📋 Candidatar-se para Gestor de Staff:',
+                    value: 'Candidata-te agora para te tornares um Gestor de Staff ATC24 e assumi o comando da liderança do nosso grupo de pilotos. Como Gestor de Staff, supervisionarás as operações de voo e revegarás planos de voo para precisão e profissionalismo.',
                     inline: false
                 },
                 {
                     name: '\u200b',
-                    value: 'Please make sure your DM\'s are open, or the application questions will not be able to reach you.',
+                    value: 'Por favor, dedica tempo para completar esta candidatura com cuidado e forneça informações precisas. Candidaturas incompletas ou falsas podem afetar a tua elegibilidade.',
                     inline: false
                 },
                 {
                     name: '\u200b',
-                    value: 'Once submitted, your application will be reviewed by our team, and we\'ll contact you with the next steps.',
+                    value: 'Certifique-se de que as tuas DMs estão abertas, ou as questões de candidatura não conseguirão contactar-te.',
                     inline: false
                 },
                 {
                     name: '\u200b',
-                    value: 'Thank you for your interest, and we look forward to potentially having you on board!',
+                    value: 'Após a submissão, a tua candidatura será revisada pela nossa equipa, e entraremos em contacto contigo com os próximos passos.',
+                    inline: false
+                },
+                {
+                    name: '\u200b',
+                    value: 'Obrigado pelo teu interesse, e esperamos potencialmente ter-te a bordo!',
                     inline: false
                 }
             )
-            .setFooter({ text: 'ATC24 Application Hub' })
+            .setFooter({ text: 'Hub de Candidaturas ATC24' })
             .setTimestamp();
 
-        // Botões fora do embed
+        // Botões
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
                     .setCustomId('apply_pilot')
-                    .setLabel('Apply')
+                    .setLabel('Candidatar')
                     .setStyle(ButtonStyle.Danger),
                 new ButtonBuilder()
                     .setCustomId('apply_staff')
-                    .setLabel('Closed')
+                    .setLabel('Fechado')
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(true)
             );
