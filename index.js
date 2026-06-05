@@ -23,23 +23,23 @@ client.on('messageCreate', message => {
 
     // Comando !ping
     if (message.content === '!ping') {
-        message.reply(`🏓 Pong! Latência: ${client.ws.ping}ms`);
+        message.reply({ content: `🏓 Pong! Latência: ${client.ws.ping}ms`, allowedMentions: { repliedUser: false } });
     }
 
     // Comando !help
     if (message.content === '!help') {
-        message.reply(`
+        message.reply({ content: `
 📚 **Comandos disponíveis:**
 \`!ping\` - Verifica a latência do bot
 \`!help\` - Mostra esta mensagem
 \`!avatar\` - Mostra seu avatar
 \`!aplicacao\` - Mostra o embed de aplicação
-        `);
+        `, allowedMentions: { repliedUser: false } });
     }
 
     // Comando !avatar
     if (message.content === '!avatar') {
-        message.reply(`${message.author.displayAvatarURL({ dynamic: true, size: 512 })}`);
+        message.reply({ content: `${message.author.displayAvatarURL({ dynamic: true, size: 512 })}`, allowedMentions: { repliedUser: false } });
     }
 
     // Comando !aplicacao
@@ -88,7 +88,7 @@ client.on('messageCreate', message => {
                     .setStyle(ButtonStyle.Danger)
             );
 
-        message.reply({ embeds: [embed], components: [row] });
+        message.reply({ embeds: [embed], components: [row], allowedMentions: { repliedUser: false } });
     }
 });
 
