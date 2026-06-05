@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, EmbedBuilder, ChannelType } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -45,14 +45,13 @@ client.on('messageCreate', message => {
     // Comando !aplicacao
     if (message.content === '!aplicacao') {
         const embed = new EmbedBuilder()
-            .setColor('#EF4444') // Vermelho
+            .setColor('#DC2626') // Vermelho (barra lateral)
             .setTitle('ATC24 Application Hub')
             .setDescription('Bem-vindo ao hub de aplicações ATC24!')
-            .setThumbnail('https://cdn.discordapp.com/emojis/123456789012345678.png') // Adicione o ícone do ATC24
             .addFields(
                 {
                     name: '✈️ Apply for Pilot:',
-                    value: '**Apply now** to become an ATC24 Pilot and take your place among the elite.\nExperience the thrill of flying across the skies while proudly representing ATC24.',
+                    value: 'Apply now to become an ATC24 Pilot and take your place among the elite.\nExperience the thrill of flying across the skies while proudly representing ATC24.',
                     inline: false
                 },
                 {
@@ -71,10 +70,26 @@ client.on('messageCreate', message => {
                     inline: false
                 }
             )
-            .setFooter({ text: 'ATC24 Application Hub' })
+            .setFooter({ text: 'ATC24 Application Hub • Hoje às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) })
             .setTimestamp();
 
-        message.reply({ embeds: [embed] });
+        // Botões
+        const row = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('apply_pilot')
+                    .setLabel('Apply')
+                    .setStyle(ButtonStyle.Danger) // Vermelho
+                    .setEmoji('✈️'),
+                new ButtonBuilder()
+                    .setCustomId('apply_staff')
+                    .setLabel('Closed')
+                    .setStyle(ButtonStyle.Secondary) // Cinza (desabilitado)
+                    .setDisabled(true)
+                    .setEmoji('📋')
+            );
+
+        message.reply({ embeds: [embed], components: [row] });
     }
 });
 
