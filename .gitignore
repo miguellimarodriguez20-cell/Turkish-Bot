@@ -1,0 +1,25 @@
+# Dependências
+node_modules/
+package-lock.json
+yarn.lock
+
+# Variáveis de ambiente (NUNCA enviar para o GitHub!)
+.env
+.env.local
+.env.*.local
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
